@@ -1,0 +1,40 @@
+{
+  "name": "es6-react-users",
+  "version": "1.0.0",
+  "description": "EcmaScript 6 sample with using Gulp, Babel, React",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "debug": "^2.2.0",
+    "react": "^0.13.0-rc2",
+    "react-tools": "^0.13.3"
+  },
+  "devDependencies": {
+    "babel-jest": "^5.3.0",
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.1.0",
+    "gulp-bower": "0.0.10",
+    "gulp-concat": "^2.5.2",
+    "gulp-livereload": "^3.8.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "react": "^0.13.3",
+    "st": "^0.5.4",
+    "traceur": "^0.0.89",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "start": "gulp"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react",
+      "<rootDir>/node_modules/react-tools"
+    ]
+  },
+  "author": "Artemov Konstantin",
+  "license": "ISC"
+}

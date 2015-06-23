@@ -1,0 +1,13 @@
+{
+  "name": "es6-react-users",
+  "version": "0.0.0",
+  "authors": [
+    "Artemov Konstantin <kost91nko@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "traceur-runtime": "~0.0.89",
+    "jquery":"~2.1.4"
+  }
+}
