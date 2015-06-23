@@ -48,6 +48,7 @@ class AppRoot extends React.Component {
         }
 
         console.log(idStr);
+        document.getElementById("footer").innerHTML = idStr;
     }
 
     changeRow(selectedKey){
@@ -74,8 +75,7 @@ class AppRoot extends React.Component {
             <div className="panel-body">
                 <Table users={this.state.users} changeRow={this.changeRow} />
             </div>
-            <div className="panel-footer">
-            </div>
+            <div className="panel-footer" id="footer"></div>
         </div>;
     }
 }
