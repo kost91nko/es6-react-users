@@ -3,26 +3,18 @@ import React from '../../node_modules/react/addons'
 class Checkbox extends React.Component{
     constructor(props) {
         super(props);
-        this.state = {isChecked: props.isChecked};
 
         this.onChange = this.onChange.bind(this);
         this.onMultiChange = this.onMultiChange.bind(this);
-        //this.componentDidMount = this.componentDidMount.bind(this);
     }
 
-/*    componentDidMount(){
-        this.state.isChecked = this.props.isChecked;
-    }*/
 
     onMultiChange() {
         var checked =  this.refs.multiSelect.getDOMNode().checked;
-
         this.props.onChange(checked);
     }
 
     onChange() {
-        //var checked = this.refs.multiSelect.getDOMNode().checked;
-
         this.props.onChange(this.props.reactKey);
     }
 

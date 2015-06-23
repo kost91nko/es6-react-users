@@ -28,13 +28,7 @@
     "prestart": "npm install",
     "start": "gulp"
   },
-  "jest": {
-    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
-    "unmockedModulePathPatterns": [
-      "<rootDir>/node_modules/react",
-      "<rootDir>/node_modules/react-tools"
-    ]
-  },
+
   "author": "Artemov Konstantin",
   "license": "ISC"
 }

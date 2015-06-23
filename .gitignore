@@ -30,7 +30,8 @@ node_modules
 .idea
 
 # Dist files
-dist/
+dist/*.js
+dist/lib
 
 # Bower files
 bower_components/

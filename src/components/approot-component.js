@@ -14,12 +14,7 @@ class AppRoot extends React.Component {
 
         this.changeAllUsers = this.changeAllUsers.bind(this);
         this.showIds = this.showIds.bind(this);
-        this.onChangeUsers = this.onChangeUsers.bind(this);
         this.changeRow = this.changeRow.bind(this);
-    }
-
-    shouldComponentUpdate () {
-        return React.addons.PureRenderMixin.shouldComponentUpdate.apply(this, arguments);
     }
 
     changeAllUsers (multiSelect){
@@ -55,13 +50,7 @@ class AppRoot extends React.Component {
         console.log(idStr);
     }
 
-    onChangeUsers(newUsers){
-        this.setState({
-            users: newUsers
-        });
-    }
     changeRow(selectedKey){
-        //this.props.changeUserStatus(this.props.reactKey, isChecked);
         var state = this.state.users.map(function(d, key) {
             return {
                 id: d.id,
@@ -74,47 +63,18 @@ class AppRoot extends React.Component {
 
         this.setState({ users: state });
     }
-    ////<Table users={this.state.users} changeUsers={this.onChangeUsers} />
+
     render () {
         var isMulti = true;
-        var self = this;
-        //var isChecked = false;
         return <div className="panel panel-default">
             <div className="panel-heading">
-                <Checkbox isChecked={this.state.isChecked} key={'ddddddd'} isMulti={isMulti} onChange={this.changeAllUsers}/>
-                <button className="btn btn-default action-button" type="submit" onClick={this.showIds}>Show ids</button>
+                <Checkbox isChecked={this.state.isChecked} isMulti={isMulti} onChange={this.changeAllUsers}/>
+                <Button onClick={this.showIds}>Show ids</Button>
             </div>
             <div className="panel-body">
-
-                <table className="table">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {this.state.users.map(function (user,key) {
-                        var isMulti = false;
-                        return <tr >
-                            <th scope="row">
-                                <Checkbox
-                                    class="multi-select"
-                                    isChecked={user.isChecked}
-                                    reactKey={key}
-                                    isMulti={isMulti}
-                                    value={user.id}
-                                    onChange={self.changeRow}/>
-                            </th>
-                            <td>{user.firstName}</td>
-                            <td>{user.lastName}</td>
-                            <td>{user.userName}</td>
-                        </tr>;
-                    })}
-                    </tbody>
-                </table>;
+                <Table users={this.state.users} changeRow={this.changeRow} />
+            </div>
+            <div className="panel-footer">
             </div>
         </div>;
     }

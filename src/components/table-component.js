@@ -1,24 +1,14 @@
 import React from '../../node_modules/react/addons';
-import UserRow from './user-row-component.js'
+import Checkbox from './checkbox-component.js'
 
 class TableComponent extends React.Component {
     constructor(props) {
         super(props);
-/*        this.state = {
-            users: this.props.users
-        };*/
-
-        this.onChangeUserStatus = this.onChangeUserStatus.bind(this);
-    }
-
-    onChangeUserStatus(key, checked){
-        var newUsers = this.props.users;
-        newUsers[key].isChecked = checked;
-        this.props.changeUsers(newUsers);
     }
 
     render() {
         var self = this;
+        var isMulti = false;
         return <table className="table">
             <thead>
             <tr>
@@ -30,8 +20,22 @@ class TableComponent extends React.Component {
             </thead>
             <tbody>
                 {this.props.users.map(function (user,key) {
-                    return <UserRow changeUserStatus={self.onChangeUserStatus} reactKey={key} key={user.id} user={user}/>
+                    return <tr key={user.id}>
+                        <th scope="row">
+                            <Checkbox
+                                class="multi-select"
+                                isChecked={user.isChecked}
+                                reactKey={key}
+                                isMulti={isMulti}
+                                value={user.id}
+                                onChange={self.props.changeRow}/>
+                        </th>
+                        <td>{user.firstName}</td>
+                        <td>{user.lastName}</td>
+                        <td>{user.userName}</td>
+                    </tr>;
                 })}
+
             </tbody>
         </table>;
     }
